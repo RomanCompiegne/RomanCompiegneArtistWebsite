@@ -1,0 +1,276 @@
+html {
+    font-size: 22px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body {
+
+    /*background-color: #141414;*/
+    background-color: #0F0F0F;
+    color: whitesmoke;
+}
+
+h1{
+    padding-left: 50px;
+}
+
+#infosLCQSJ{
+text-align: left;
+    font-size: 22px;
+}
+
+
+h5{
+padding-left: 50px;
+font-style: normal;
+}
+
+a {
+    color: aliceblue;
+}
+
+a:visited {
+    color: aliceblue;
+}
+
+a:hover, a:active {
+    color: aliceblue;
+}
+/*
+table1 ,tr1 , th1, td1 {
+    width:100%;
+    border: 1px solid  141414e;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+*/
+#tableArtworks{width:100%;} /*or whatever width you want*/
+
+#tableArtworks th{width:2000px;} /*something big*/
+#tableArtworks td{width:2000px;
+text-align: center;
+font-size: 16px;
+} /*something big*/
+
+
+
+
+#tableArtworks tr{width: 2000px;}
+
+
+
+#tableArtworks2{width:100%;} /*or whatever width you want*/
+
+#tableArtworks2 th{width:2000px;} /*something big*/
+#tableArtworks2 td{width:2000px;
+text-align: center;
+font-size: 16px;
+} /*something big*/
+
+
+
+
+#tableArtworks2 tr{width: 2000px;}
+
+
+
+/*
+table{
+    border: 0px solid  141414e;
+    font-family: 'Courier New', Courier, monospace;
+    border-collapse: collapse;
+}*/
+
+
+#texteSansChatsTable{
+width: 80%;
+}
+#texteSansChats{    
+margin-left: 50px;margin-right: 20%;
+
+text-align: justify;
+margin-top: 0px;
+margin-bottom: -2px;
+}
+/*
+#placementTexteSansChats{
+imgali}*/
+#texteBioTable{
+width: 80%;
+}
+#texteBio{    
+margin-left: 50px;margin-right: 20%;
+
+text-align: justify;
+margin-top: 0px;
+margin-bottom: -6px;
+}
+#texteMetalPrepareTable{
+width: 80%;
+}
+#texteMetalPrepare{    
+margin-left: 50px;
+margin-right: 20%;
+text-align: justify;
+margin-top: 0px;margin-bottom: 0px;
+}    
+#texteLCQSJTable{
+width: 80%;
+}
+#texteLCQSJ{
+margin-left: 50px;margin-right: 20%;
+
+text-align: justify;
+margin-top: 0px;margin-bottom: 0px;
+
+}#texteCodeBarreTable{
+width: 80%;
+}
+#texteCodeBarre{    
+margin-left: 50px;margin-right: 20%;
+
+text-align: justify;
+margin-top: 0px;margin-bottom: 0px;
+}
+#texteLSDNTable{
+width: 80%;
+}
+#texteLSDN{
+margin-left: 50px;margin-right: 20%;
+
+text-align: justify;
+margin-top: 0px;margin-bottom: 0px;
+}
+#texteQRCodeTable{
+width: 80%;
+}
+#texteQRCode{
+margin-left: 50px;margin-right: 20%;
+
+text-align: justify;
+margin-top: 0px;margin-bottom: -0px;
+}
+
+#texteDessinSonore{
+    margin: 10%;
+text-align: justify;
+margin-top: 0px;margin-bottom: -0px;
+}
+
+#tableVisuelLSDN{
+
+margin-left: 42px;
+margin-right: 42px;
+padding: 50%;
+
+}
+#tableVisuelCodeBarre{
+border-spacing: 0px;
+}
+
+
+.imageContainer > img:hover {
+-webkit-transform:scale(1.5); /* or some other value */
+    transform:scale(1.5);
+}
+
+
+
+#testTableChats{
+
+    text-align: left;
+
+
+}
+
+
+
+
+.imgMetalPrep01 > img:hover{
+    cursor:pointer;
+}
+.imgMetal01 > img:hover{
+    cursor:pointer;
+}
+.imgMetal02 > img:hover{
+    cursor:pointer;
+}
+.imgMetal03 > img:hover{
+    cursor:pointer;
+}
+.imgMetal04 > img:hover{
+    cursor:pointer;
+}
+.imgMetal05 > img:hover{
+    cursor:pointer;
+}
+.imgMetal06 > img:hover{
+    cursor:pointer;
+}
+.imgMetal07 > img:hover{
+    cursor:pointer;
+}
+.imgMetal08 > img:hover{
+    cursor:pointer;
+}
+
+.imgMetalPrep01 > img:active {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.6); 
+}
+.imgMetal01 > img:active {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(3.2); 
+}
+.imgMetal02 > img:active {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.6); 
+}
+.imgMetal03 > img:active {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(2); 
+}
+.imgMetal04 > img:active {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.75); 
+}
+.imgMetal05 > img:active {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(2); 
+}
+.imgMetal06 > img:active {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(2.3); 
+}
+.imgMetal07 > img:active {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(2); 
+}
+.imgMetal08 > img:active {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.5); 
+}
+.imgMetal09 > img:active {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(3.2); 
+}

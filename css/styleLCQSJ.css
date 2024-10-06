@@ -1,0 +1,38 @@
+html {
+    font-size: 22px;
+}
+
+body {
+    background-color: #141414;
+    color: whitesmoke;
+}
+
+h1{
+    padding-left: 50px;
+}
+
+
+h5{
+padding-left: 50px;
+font-style: normal;
+}
+
+a {
+    color: aliceblue;
+}
+
+a:visited {
+    color: aliceblue;
+}
+
+a:hover, a:active {
+    color: aliceblue;
+}
+
+table, tr, th, td, caption {
+    border: 1px solid  141414e;
+    font-family: 'Courier New', Courier, monospace;
+    border-collapse: collapse;
+padding-left: 2px;
+padding-right: 2px;
+}
