@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Roman Compiègne">
+    <meta name="description" content="Information et description de la pièce : QR Code Musicaux">
+    <title>QR Codes Musicaux - Roman Compiègne</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* CSS pour remplacer les attributs align */
+        .align-left {
+            float: left;
+            margin-right: 10px; /* Ajuste la marge si nécessaire */
+        }
+        .align-right {
+            text-align: right;
+        }
+        .center {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="index.html"><img class="align-left" src="img/returnArrow1.png" alt="" width="20"></a>
+                
+        <h1 id="h1LCQSJ">QR Codes Musicaux</h1>
+        
+        <p id="infosLCQSJ" style="margin-top: -14px; margin-left: 50px;">
+            2022-2023 <br>
+            Installation sonore<br>
+            Dimensions variables
+        </p>
+        <hr>
+
+        <table style="margin: auto">
+            <tr> 
+                <td><img src="QRCodeMusicaux/VisuelQRCodeMusicaux.png" alt="Visuel de QR Code Musicaux" title="QR Code Musicaux" width="600"></td>
+                <td class="center">
+                    <video width="1170" controls>
+                        <source src="QRCodeMusicaux/QRCode_Flute.mp4" type="video/mp4">
+                        Votre navigateur ne supporte pas la vidéo.
+                    </video>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p style="margin-top: -4px; margin-bottom: -6px;;">
+                        <u>QR Codes Musicaux</u>, 2023
+                    </p>
+                </td>
+                <td>
+                    <p style="margin-top: -4px; margin-bottom: -6px; margin-left: 10px;">
+                        Démonstration d'une décomposition musicale d'un des QR Codes de la chaîne
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </header>
+    
+    <hr>
+    
+    <main>
+        <p id="texteQRCode">
+            Cette pièce intègre mes recherches autour des partitions graphiques. 
+            De la même manière que les codes-barres, les QR codes sont devenus des objets courants que nous sommes amenés à rencontrer 
+            souvent dans nos vies quotidiennes. J'ai décidé de transcrire ces QR 
+            codes en musique. J'ai donc appris à les comprendre, comment sont 
+            stockées les informations ? Qu'est-ce qui définit la forme des QR codes 
+            ? Comment sont-ils lus par nos téléphones ?
+            D'après ces recherches, j'ai compris que les QR codes pouvaient 
+            être décomposés en plusieurs groupes de huit blocs chacun, cela se 
+            traduisant en 8-bits pour le téléphone. Et que ces groupes de blocs 
+            étaient lus dans un certain ordre, ce qui permet, une fois que tout le 
+            QR code est analysé, de renvoyer vers un lien spécifique.
+            J'ai repris cette méthode de lecture pour une composition musicale. 
+            J'ai d'abord associé un QR code à un instrument, puis chaque bloc 
+            à une note. Si le bloc est noir, cela veut dire que la note sera jouée, à 
+            l'inverse s'il est blanc il n'y aura aucun son. Ainsi, pour chaque groupe 
+            de huit blocs, il peut y avoir jusqu'à huit notes qui sont lancées en 
+            même temps. La lecture se fait donc bloc de huit par bloc de huit.
+            Pour rendre les compositions sonores plus intéressantes, j'ai décidé 
+            de faire une suite de QR codes, un premier renvoie à un deuxième 
+            qui renvoie à un troisième. À chaque étape, une décomposition 
+            musicale existe et chacun des QR codes est associé à un instrument 
+            spécifique. Résulte ainsi trois compositions qui, avec trois téléphones, 
+            peuvent être jouées en même temps.
+        </p>
+        <hr>
+        
+        <footer>
+            <table style="width: 100%; margin-top: -26px;">
+                <tr>
+                    <td><br><a href="#"><img src="img/flecheVersLeHaut.png" alt="" width="30"></a></td>
+                    <td class="align-right"><br>Copyright &copy; Roman Compiègne</td>
+                </tr>
+            </table>
+        </footer>
+    </main>
+</body>
+
+</html>
