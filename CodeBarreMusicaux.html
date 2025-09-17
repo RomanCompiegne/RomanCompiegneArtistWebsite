@@ -8,63 +8,63 @@
     <title>Codes-Barres Musicaux - Roman Compiegne</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/style.css">
-    
 </head>
 
 <body>
     <header>
-        <a href="index.html"><img style="float: left;" src="img/returnArrow1.png" alt="" width="20"></a>
-                
+        <a href="index.html"><img style="float: left;" src="img/returnArrow1.png" alt="Retour" width="20"></a>
+
         <h1 id="h1LCQSJ">Codes-Barres Musicaux</h1>
-        
-        <p id="infosLCQSJ" style="margin-top: -14px; margin-left: 50px;" >2022-2023 <br>
+
+        <p id="infosLCQSJ" style="margin-top: -14px; margin-left: 50px;">
+            2022-2023 <br>
             Installation multimédia<br>
             Dimensions variables
         </p>
-        
+
         <hr>
 
-        <table style="border-spacing: 10px; margin: auto; width: 90%;">
-            <tr>
-                <td rowspan="2" style="text-align: center;">
-                    <img src="codesBarresMusicaux/codeBarreVisuel02v2.png" alt="ensemble" title="Le Sens Des Numéros" height="656">
-                </td>
-                
-                <td style="text-align: center;">
-                    <img src="codesBarresMusicaux/codeBarreVisuel03v2.png" alt="tablette" title="Le Sens Des Numéros" height="300">
-                </td>
-                <td style="text-align: center;">
-                    <img src="codesBarresMusicaux/codeBarreVisuel04v2.png" alt="codebarre" title="Le Sens Des Numéros" height="300">
-                </td>
-            </tr>
-            <tr>
-                <td style="text-align: center;">
-                    <img src="codesBarresMusicaux/codeBarreVisuel01v2.png" alt="intérieur" title="Le Sens Des Numéros" height="325">
-                </td>
-                <td style="text-align: center;">
-                    <video height="320" controls>
-                        <source src="codesBarresMusicaux/ExtraitVideoEtAudio.mp4" type="video/mp4">
-                    </video>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="1" style="text-align: center;">
-                    <p style="margin-top: -14px; margin-bottom: -20px;">
-                        Photographies de l'installation <u>Codes-Barres Musicaux</u>, 2023
-                    </p>
-                </td>
-                <td></td>
-                <td style="text-align: center;">
-                    <p style="margin-top: -14px; margin-bottom: -20px;">
-                        Extrait vidéo et sonore de l'installation
-                    </p>
-                </td>
-            </tr>
-        </table>
+        <!-- Nouvelle galerie avec mise en page spéciale -->
+<div class="artwork-gallery CodeBarreMusicaux">
+
+    <figure class="big">
+        <img src="codesBarresMusicaux/codeBarreVisuel02v2.png" style="width: 430px;" 
+             alt="ensemble" title="">
+        <figcaption>
+            <em>Codes-Barres Musicaux</em>, DNSEP, juin 2023
+        </figcaption>
+    </figure>
+
+    <figure>
+        <img src="codesBarresMusicaux/codeBarreVisuel03v2.png" style="width: 430px;"
+             alt="tablette" title="">
+    </figure>
+
+    <figure>
+        <img src="codesBarresMusicaux/codeBarreVisuel04v2.png" style="width: 355px;"
+             alt="codebarre" title="">
+    </figure>
+
+    <figure class="align-bottom">
+        <img src="codesBarresMusicaux/codeBarreVisuel01v2.png" style="width: 430px;"
+             alt="intérieur" title="">
+    </figure>
+
+    <figure>
+        <video class="align-bottom" style="width: 355px;" controls>
+            <source src="codesBarresMusicaux/ExtraitVideoEtAudio.mp4" type="video/mp4">
+        </video>
+        <figcaption>
+            Extrait vidéo et sonore de l'installation
+        </figcaption>
+    </figure>
+
+</div>
+
     </header>
-    
+
     <hr>
-    
+
     <main>
         <p id="texteCodeBarre">
             Cette pièce intègre mes recherches autour des partitions graphiques 
@@ -87,22 +87,17 @@
             en direct par le programme qui joue les codes-barres qui lui sont 
             présentés.
         </p>
-        
+
         <hr>
-        
-        <footer>
-            <table style="width: 100%; margin-top: -26px;">
-                <tr>
-                    <td style="text-align: left;">
-                        <a href="#"><img src="img/flecheVersLeHaut.png" alt="" width="30"></a>
-                    </td>
-                    <td style="text-align: right;">
-                        <p>Copyright &copy; Roman Compiègne</p>
-                    </td>
-                </tr>
-            </table>
-        </footer>
+
+<!-- Footer modernisé -->
+<footer class="footer-nav">
+    <a href="#">
+        <img src="img/flecheVersLeHaut.png" alt="Remonter en haut" width="30">
+    </a>
+    <p>Copyright &copy; Roman Compiègne</p>
+</footer>
+
     </main>
 </body>
-
 </html>
