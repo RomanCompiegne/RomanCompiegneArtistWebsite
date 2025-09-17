@@ -7,7 +7,7 @@ body {
 
     /*background-color: #141414;*/
     background-color: #0F0F0F;
-    color: whitesmoke;
+    color: rgb(245, 245, 245);
 }
 
 h1{
@@ -34,7 +34,7 @@ a:visited {
 }
 
 a:hover, a:active {
-    color: aliceblue;
+    color: aliceblue;    
 }
 /*
 table1 ,tr1 , th1, td1 {
@@ -185,7 +185,7 @@ border-spacing: 0px;
 
 
 
-
+/*
 .imgMetalPrep01 > img:hover{
     cursor:pointer;
 }
@@ -213,7 +213,8 @@ border-spacing: 0px;
 .imgMetal08 > img:hover{
     cursor:pointer;
 }
-
+    */
+/*
 .imgMetalPrep01 > img:active {
     position: fixed;
     top: 50%;
@@ -274,3 +275,1392 @@ border-spacing: 0px;
     left: 50%;
     transform: translate(-50%, -50%) scale(3.2); 
 }
+*/
+
+
+
+
+/* NAV - art items: each item = title + date (keeps the date under the title when wrapping) */
+.artworks-nav {
+    margin: 1rem 0 2rem;
+    font-family: inherit;
+}
+
+.artworks-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: flex-start;
+    justify-content: center;   /* centre les éléments dans chaque ligne */
+}
+
+.artwork {
+    /* unité qui se wrappe : règle la largeur minimale et maximale */
+    flex: 0 1 250px;          /* ne rétrécit pas sous 150px, peut grandir */
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;   /* titre au-dessus, date en-dessous */
+    align-items: center;      /* centre le titre/date dans la colonne */
+    box-sizing: border-box;
+}
+
+.artwork a {
+    display: block;
+    padding: 6px 8px;
+    text-decoration: none;
+    font-weight: 700;
+    text-align: center;
+    border-bottom: 2px solid transparent;
+}
+
+.artwork a:hover,
+.artwork a:focus {
+    outline: none;
+    border-bottom-color: currentColor;
+}
+
+.artwork .artwork-date {
+    margin-top: 6px;
+    font-size: 0.9rem;
+    color: rgb(150, 150, 150);    
+    text-align: center;
+}
+
+/* Petit écran : empile verticalement et aligne à gauche pour lecture mobile */
+@media (max-width: 760px) {
+    .artwork {
+        flex: 1 1 100%;
+        max-width: none;
+        align-items: flex-start;
+    }
+    .artwork a,
+    .artwork .artwork-date {
+        text-align: left;
+        padding-left: 0.25rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- Galerie spécifique à CodeBarreMusicaux: grande image + 2 colonnes plus petites --- */
+/* Utilise cette classe dans une page si tu veux la mise en page de
+   "Codes-Barres Musicaux" (grande image à gauche, deux colonnes à droite). */
+.artwork-gallery.CodeBarreMusicaux {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* grande colonne + 2 colonnes plus petites */
+    gap: 20px;                          /* espace entre colonnes et rangées */
+    max-width: 1500px;                  /* largeur max pour éviter que ça s’étire trop */
+    margin: 1rem auto;                  /* centre la grille dans la page */
+    padding: 0 20px;                    /* marge égale à gauche et à droite */
+    box-sizing: border-box;
+    align-items: start;                 /* aligne toutes les figures en haut de la grille */
+}
+
+.artwork-gallery.CodeBarreMusicaux figure {
+    display: flex;
+    justify-content: center; /* centre horizontalement le contenu (image/vidéo + légende) */
+    align-items: flex-start; /* garde les images en haut (sauf si tu ajoutes align-bottom) */
+    margin: 0;               /* garde la marge à zéro */
+    flex-direction: column;  /* garde figcaption sous l’image/vidéo */
+}
+
+/* Pour aligner certaines figures en bas de leur cellule */
+.artwork-gallery.CodeBarreMusicaux figure.align-bottom {
+    justify-content: flex-end; /* pousse l’image/vidéo en bas de la cellule */
+}
+
+/* Images et vidéos dans la grille */
+.artwork-gallery.CodeBarreMusicaux img,
+.artwork-gallery.CodeBarreMusicaux video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Grande image qui occupe deux lignes */
+.artwork-gallery.CodeBarreMusicaux .big {
+    grid-row: span 2; /* grande image sur 2 rangées */
+}
+
+/* Légendes sous les images/vidéos */
+.artwork-gallery.CodeBarreMusicaux figcaption {
+    margin-top: 6px;
+    font-size: 0.9rem;
+    color: rgb(150, 150, 150);    
+    width: 100%;         /* occupe toute la largeur du figure */
+    text-align: center;  /* centre le texte */
+}
+
+/* Forcer l’application des tailles dans .special-layout */
+.artwork-gallery.CodeBarreMusicaux img.small,
+.artwork-gallery.CodeBarreMusicaux video.small {
+    width: 400px;
+}
+
+.artwork-gallery.CodeBarreMusicaux img.medium,
+.artwork-gallery.CodeBarreMusicaux video.medium {
+    width: 400px;
+}
+
+.artwork-gallery.CodeBarreMusicaux img.large,
+.artwork-gallery.CodeBarreMusicaux video.large {
+    width: 800px;
+}
+
+/* Responsive : pile en colonne sur mobile */
+@media (max-width: 768px) {
+    .artwork-gallery.CodeBarreMusicaux {
+        grid-template-columns: 1fr;
+    }
+    .artwork-gallery.CodeBarreMusicaux .big {
+        grid-row: auto;
+    }
+}
+
+
+
+
+
+
+
+/* --- Galerie spécifique à LSDN --- */
+/* Utilise cette classe dans une page si tu veux une mise en page
+   avec 3 colonnes et une légende commune sous les images. */
+.artwork-gallery.LSDN {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* 3 colonnes de largeur égale */
+    gap: 20px;                          /* espace entre colonnes */
+    max-width: 1500px;                  /* largeur max pour éviter que ça s’étire trop */
+    margin: 1rem auto;                  /* centre la grille dans la page */
+    padding: 0 20px;                    /* marge égale à gauche et à droite */
+    box-sizing: border-box;
+    align-items: center;                /* centre verticalement les figures dans leur ligne */
+    justify-items: center;              /* centre horizontalement chaque figure */
+}
+/* --- Ligne du haut (2 colonnes) --- */
+.artwork-gallery.LSDN .row-bottom {
+    display: grid;
+    grid-template-columns: 1fr; /* grande colonne + colonne pour les moyennes */
+    gap: 00px;
+    align-items: stretch;           /* les deux colonnes prennent toute la hauteur */
+    justify-content: center; /* centre verticalement dans la colonne */
+
+}
+/* --- Ligne du haut (2 colonnes) --- */
+.artwork-gallery.LSDN .row-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* grande colonne + colonne pour les moyennes */
+    gap: 00px;
+    align-items: stretch;           /* les deux colonnes prennent toute la hauteur */
+    justify-content: center; /* centre verticalement dans la colonne */
+
+}
+
+.artwork-gallery.LSDN figure {
+    display: flex;
+    justify-content: center; /* centre horizontalement l’image/vidéo */
+    align-items: center;     /* centre verticalement le contenu */
+    margin: 0;               /* supprime les marges externes */
+    flex-direction: column;  /* place la légende sous l’image/vidéo */
+}
+
+/* Pour aligner certaines figures en bas de leur cellule si besoin */
+.artwork-gallery.LSDN figure.align-bottom {
+    align-self: end; /* pousse la figure entière en bas de la cellule */
+}
+
+/* Images et vidéos dans la grille */
+.artwork-gallery.LSDN img,
+.artwork-gallery.LSDN video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Grande image qui occupe deux lignes (rarement utile ici mais laissé au cas où) */
+.artwork-gallery.LSDN .big {
+    grid-row: span 2;
+}
+
+/* Légendes normales (sous une seule image/vidéo) */
+.artwork-gallery.LSDN figcaption {
+    margin-top: 6px;
+    font-size: 0.9rem;
+    color: rgb(150, 150, 150);    
+    width: 100%;         /* occupe toute la largeur du figure */
+    text-align: center;  /* centre le texte */
+
+    
+}
+
+/* Légende commune (sous toutes les images d'une ligne) */
+.artwork-gallery.LSDN .gallery-caption {
+    grid-column: 1 / -1; /* prend toute la largeur */
+    text-align: center;
+    margin-top: 6px;
+    font-size: 0.9rem;
+    color: rgb(150, 150, 150);    
+}
+
+
+/* --- Alignements horizontaux pour les figures --- */
+.artwork-gallery.LSDN figure.align-left {
+    justify-self: start;  /* colle à gauche de la cellule */
+}
+
+.artwork-gallery.LSDN figure.align-center {
+    justify-self: center; /* centre dans la cellule */
+}
+
+.artwork-gallery.LSDN figure.align-right {
+    justify-self: end;    /* colle à droite de la cellule */
+}
+
+
+
+
+/* Tailles personnalisées si besoin */
+.artwork-gallery.LSDN img.small,
+.artwork-gallery.LSDN video.small {
+    width: 400px;
+}
+
+.artwork-gallery.LSDN img.medium,
+.artwork-gallery.LSDN video.medium {
+    width: 400px;
+}
+
+.artwork-gallery.LSDN img.large,
+.artwork-gallery.LSDN video.large {
+    width: 800px;
+}
+
+/* Responsive : pile en colonne sur mobile */
+@media (max-width: 768px) {
+    .artwork-gallery.LSDN {
+        grid-template-columns: 1fr;
+    }
+    .artwork-gallery.LSDN .big {
+        grid-row: auto;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- Galerie spécifique à LCQSJ --- */
+/* Utilise cette classe dans une page si tu veux une mise en page
+   avec 3 colonnes et une légende commune sous les images. */
+.artwork-gallery.LCQSJ {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 3 colonnes de largeur égale */
+    gap: 0px;                          /* espace entre colonnes */
+    max-width: 1500px;                  /* largeur max pour éviter que ça s’étire trop */
+    margin: 1rem auto;                  /* centre la grille dans la page */
+    padding: 0 0px;                    /* marge égale à gauche et à droite */
+    box-sizing: border-box;
+    align-items: center;                /* centre verticalement les figures dans leur ligne */
+    justify-items: center;              /* centre horizontalement chaque figure */
+}
+
+.artwork-gallery.LCQSJ figure {
+    display: flex;
+    justify-content: center; /* centre horizontalement l’image/vidéo */
+    align-items: center;     /* centre verticalement le contenu */
+    margin: 0;               /* supprime les marges externes */
+    flex-direction: column;  /* place la légende sous l’image/vidéo */
+}
+
+/* Pour aligner certaines figures en bas de leur cellule si besoin */
+.artwork-gallery.LCQSJ figure.align-bottom {
+    align-self: end; /* pousse la figure entière en bas de la cellule */
+}
+
+/* Images et vidéos dans la grille */
+.artwork-gallery.LCQSJ img,
+.artwork-gallery.LCQSJ video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Grande image qui occupe deux lignes (rarement utile ici mais laissé au cas où) */
+.artwork-gallery.LCQSJ .big {
+    grid-row: span 2;
+}
+
+/* Légendes normales (sous une seule image/vidéo) */
+.artwork-gallery.LCQSJ figcaption {
+    margin-top: 6px;
+    font-size: 0.9rem;
+    color: rgb(150, 150, 150);    
+    width: 100%;         /* occupe toute la largeur du figure */
+    text-align: center;  /* centre le texte */
+
+    
+}
+
+/* --- Légende commune (sous toutes les images) --- */
+.artwork-gallery.LCQSJ .gallery-caption {
+    grid-column: 1 / -1; /* occupe toute la largeur (les 3 colonnes) */
+    text-align: center;  /* centre le texte */
+    margin-top: 6px;
+    font-size: 0.9rem;
+   /* color: #ccc; */
+    color: rgb(150, 150, 150);    
+
+}
+
+
+/* --- Alignements horizontaux pour les figures --- */
+.artwork-gallery.LCQSJ figure.align-left {
+    justify-self: start;  /* colle à gauche de la cellule */
+}
+
+.artwork-gallery.LCQSJ figure.align-center {
+    justify-self: center; /* centre dans la cellule */
+}
+
+.artwork-gallery.LCQSJ figure.align-right {
+    justify-self: end;    /* colle à droite de la cellule */
+}
+
+
+
+
+
+/* Tailles personnalisées si besoin */
+.artwork-gallery.LCQSJ img.small,
+.artwork-gallery.LCQSJ video.small {
+    width: 400px;
+}
+
+.artwork-gallery.LCQSJ img.medium,
+.artwork-gallery.LCQSJ video.medium {
+    width: 400px;
+}
+
+.artwork-gallery.LCQSJ img.large,
+.artwork-gallery.LCQSJ video.large {
+    width: 800px;
+}
+
+/* Responsive : pile en colonne sur mobile */
+@media (max-width: 768px) {
+    .artwork-gallery.LCQSJ {
+        grid-template-columns: 1fr;
+    }
+    .artwork-gallery.LCQSJ .big {
+        grid-row: auto;
+    }
+}
+
+
+
+
+
+
+
+/* --- Galerie spécifique à SansChats --- */
+/* Utilise cette classe dans une page si tu veux une mise en page
+   avec 3 colonnes et une légende commune sous les images. */
+.artwork-gallery.SansChats {
+    display: grid;
+    grid-template-columns: 1fr; /* 3 colonnes de largeur égale */
+    gap: 0px;                          /* espace entre colonnes */
+    max-width: 1500px;                  /* largeur max pour éviter que ça s’étire trop */
+    margin: 1rem auto;                  /* centre la grille dans la page */
+    padding: 0 0px;                    /* marge égale à gauche et à droite */
+    box-sizing: border-box;
+    align-items: center;                /* centre verticalement les figures dans leur ligne */
+    justify-items: center;              /* centre horizontalement chaque figure */
+}
+
+.artwork-gallery.SansChats figure {
+    display: flex;
+    justify-content: center; /* centre horizontalement l’image/vidéo */
+    align-items: center;     /* centre verticalement le contenu */
+    margin: 0;               /* supprime les marges externes */
+    flex-direction: column;  /* place la légende sous l’image/vidéo */
+}
+
+/* Pour aligner certaines figures en bas de leur cellule si besoin */
+.artwork-gallery.SansChats figure.align-bottom {
+    align-self: end; /* pousse la figure entière en bas de la cellule */
+}
+
+/* Images et vidéos dans la grille */
+.artwork-gallery.SansChats img,
+.artwork-gallery.SansChats video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Grande image qui occupe deux lignes (rarement utile ici mais laissé au cas où) */
+.artwork-gallery.SansChats .big {
+    grid-row: span 2;
+}
+
+/* Légendes normales (sous une seule image/vidéo) */
+.artwork-gallery.SansChats figcaption {
+    margin-top: 6px;
+    font-size: 0.9rem;
+    color: rgb(150, 150, 150);    
+    width: 100%;         /* occupe toute la largeur du figure */
+    text-align: center;  /* centre le texte */
+
+    
+}
+
+/* --- Légende commune (sous toutes les images) --- */
+.artwork-gallery.SansChats .gallery-caption {
+    grid-column: 1 / -1; /* occupe toute la largeur (les 3 colonnes) */
+    text-align: center;  /* centre le texte */
+    margin-top: 6px;
+    font-size: 0.9rem;
+   /* color: #ccc; */
+    color: rgb(150, 150, 150);    
+
+}
+
+/* Tailles personnalisées si besoin */
+.artwork-gallery.SansChats img.small,
+.artwork-gallery.SansChats video.small {
+    width: 400px;
+}
+
+.artwork-gallery.SansChats img.medium,
+.artwork-gallery.SansChats video.medium {
+    width: 400px;
+}
+
+.artwork-gallery.SansChats img.large,
+.artwork-gallery.SansChats video.large {
+    width: 800px;
+}
+
+/* Responsive : pile en colonne sur mobile */
+@media (max-width: 768px) {
+    .artwork-gallery.SansChats {
+        grid-template-columns: 1fr;
+    }
+    .artwork-gallery.SansChats .big {
+        grid-row: auto;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- Galerie spécifique à QRCode --- */
+/* Utilise cette classe dans une page si tu veux une mise en page
+   avec 3 colonnes et une légende commune sous les images. */
+.artwork-gallery.QRCode {
+    display: grid;
+    grid-template-columns: 1fr; /* 3 colonnes de largeur égale */
+    gap: 0px;                          /* espace entre colonnes */
+    max-width: 1500px;                  /* largeur max pour éviter que ça s’étire trop */
+    margin: 1rem auto;                  /* centre la grille dans la page */
+    padding: 0 0px;                    /* marge égale à gauche et à droite */
+    box-sizing: border-box;
+    align-items: center;                /* centre verticalement les figures dans leur ligne */
+    justify-items: center;              /* centre horizontalement chaque figure */
+}
+
+.artwork-gallery.QRCode figure {
+    display: flex;
+    justify-content: center; /* centre horizontalement l’image/vidéo */
+    align-items: center;     /* centre verticalement le contenu */
+    margin: 0;               /* supprime les marges externes */
+    flex-direction: column;  /* place la légende sous l’image/vidéo */
+}
+
+/* Pour aligner certaines figures en bas de leur cellule si besoin */
+.artwork-gallery.QRCode figure.align-bottom {
+    align-self: end; /* pousse la figure entière en bas de la cellule */
+}
+
+/* Images et vidéos dans la grille */
+.artwork-gallery.QRCode img,
+.artwork-gallery.QRCode video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Grande image qui occupe deux lignes (rarement utile ici mais laissé au cas où) */
+.artwork-gallery.QRCode .big {
+    grid-row: span 2;
+}
+
+/* Légendes normales (sous une seule image/vidéo) */
+.artwork-gallery.QRCode figcaption {
+    margin-top: 6px;
+    font-size: 0.9rem;
+    color: rgb(150, 150, 150);    
+    width: 100%;         /* occupe toute la largeur du figure */
+    text-align: center;  /* centre le texte */
+
+    
+}
+
+/* --- Légende commune (sous toutes les images) --- */
+.artwork-gallery.QRCode .gallery-caption {
+    grid-column: 1 / -1; /* occupe toute la largeur (les 3 colonnes) */
+    text-align: center;  /* centre le texte */
+    margin-top: 6px;
+    font-size: 0.9rem;
+   /* color: #ccc; */
+    color: rgb(150, 150, 150);    
+
+}
+
+/* Tailles personnalisées si besoin */
+.artwork-gallery.QRCode img.small,
+.artwork-gallery.QRCode video.small {
+    width: 400px;
+}
+
+.artwork-gallery.QRCode img.medium,
+.artwork-gallery.QRCode video.medium {
+    width: 400px;
+}
+
+.artwork-gallery.QRCode img.large,
+.artwork-gallery.QRCode video.large {
+    width: 800px;
+}
+
+/* Responsive : pile en colonne sur mobile */
+@media (max-width: 768px) {
+    .artwork-gallery.QRCode {
+        grid-template-columns: 1fr;
+    }
+    .artwork-gallery.QRCode .big {
+        grid-row: auto;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- Galerie spécifique à MetalPrepare --- */
+/* Version adaptée :
+   - Ligne du haut = 2 colonnes (big + 2 moyennes empilées)
+   - Lignes suivantes = 3 colonnes
+   - Possibilité d'ajouter une légende commune
+*/
+.artwork-gallery.MetalPrepare {
+    display: flex;              /* on empile des "rows" */
+    flex-direction: column;
+    gap: 20px;                  /* espace entre les lignes */
+    max-width: 1800px;
+    margin: 1rem auto;
+    padding: 0 0px;                    /* marge égale à gauche et à droite */
+    box-sizing: border-box;
+}
+
+/* --- Ligne du haut (2 colonnes) --- */
+.artwork-gallery.MetalPrepare .row-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* grande colonne + colonne pour les moyennes */
+    gap: 00px;
+    align-items: stretch;           /* les deux colonnes prennent toute la hauteur */
+    justify-content: center; /* centre verticalement dans la colonne */
+
+}
+
+
+
+
+/* Colonne de droite avec 2 images moyennes empilées */
+.artwork-gallery.MetalPrepare .row-top .col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center; /* centre verticalement dans la colonne */
+        align-items: flex-start; /* colle à gauche de la cellule */
+
+}
+
+/* --- Lignes suivantes (3 colonnes) --- */
+.artwork-gallery.MetalPrepare .row-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* 3 colonnes classiques */
+    gap: 20px;
+    justify-items: center;              /* centre horizontalement les figures */
+    align-items: center;                /* centre verticalement les figures */
+}
+
+/* Figures (images + légendes) */
+.artwork-gallery.MetalPrepare figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+/* Images et vidéos */
+.artwork-gallery.MetalPrepare img,
+.artwork-gallery.MetalPrepare video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Grande image (si tu veux qu’elle prenne 2 lignes dans .row-bottom) */
+.artwork-gallery.MetalPrepare .big {
+    grid-row: span 2;
+}
+
+/* Légende normale (sous une seule image) */
+.artwork-gallery.MetalPrepare figcaption {
+    margin-top: 6px;
+    font-size: 0.9rem;
+    color: rgb(150, 150, 150);    
+    text-align: center;
+}
+
+
+
+
+/* Légende commune (sous toutes les images d'une ligne) */
+.artwork-gallery.MetalPrepare .gallery-caption {
+    grid-column: 1 / -1; /* prend toute la largeur */
+    text-align: center;
+    margin-top: 6px;
+    font-size: 0.9rem;
+    color: rgb(150, 150, 150);    
+}
+
+
+/* --- Alignements horizontaux pour les figures --- */
+.artwork-gallery.MetalPrepare figure.align-left {
+    justify-self: start;  /* colle à gauche de la cellule */
+}
+
+.artwork-gallery.MetalPrepare figure.align-center {
+    justify-self: center; /* centre dans la cellule */
+}
+
+.artwork-gallery.MetalPrepare figure.align-right {
+    justify-self: end;    /* colle à droite de la cellule */
+}
+
+
+/* Tailles personnalisées */
+.artwork-gallery.MetalPrepare img.small,
+.artwork-gallery.MetalPrepare video.small {
+    width: 400px;
+}
+
+.artwork-gallery.MetalPrepare img.medium,
+.artwork-gallery.MetalPrepare video.medium {
+    width: 400px;
+}
+
+.artwork-gallery.MetalPrepare img.large,
+.artwork-gallery.MetalPrepare video.large {
+    width: 800px;
+}
+
+/* Responsive : pile tout en colonne */
+@media (max-width: 768px) {
+    .artwork-gallery.MetalPrepare .row-top,
+    .artwork-gallery.MetalPrepare .row-bottom {
+        grid-template-columns: 1fr;
+    }
+    .artwork-gallery.MetalPrepare .row-top .col {
+        flex-direction: column;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- Galerie spécifique à BugsMusicaux --- */
+/* Version adaptée :
+   - Ligne du haut = 2 colonnes (big + 2 moyennes empilées)
+   - Lignes suivantes = 3 colonnes
+   - Possibilité d'ajouter une légende commune
+*/
+.artwork-gallery.BugsMusicaux {
+    display: flex;              /* on empile des "rows" */
+    flex-direction: column;
+    gap: 20px;                  /* espace entre les lignes */
+    max-width: 1800px;
+    margin: 1rem auto;
+    padding: 0 0px;                    /* marge égale à gauche et à droite */
+    box-sizing: border-box;
+}
+
+/* --- Ligne du haut (2 colonnes) --- */
+.artwork-gallery.BugsMusicaux .row-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* grande colonne + colonne pour les moyennes */
+    gap: 20px;
+    align-items: center;           /* les deux colonnes prennent toute la hauteur */
+    justify-content: center;        /* centre verticalement dans la colonne */
+
+}
+
+
+
+
+/* Colonne de droite avec 2 images moyennes empilées */
+.artwork-gallery.BugsMusicaux .row-top .col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center; /* centre verticalement dans la colonne */
+    align-items: flex-start; /* colle à gauche de la cellule */
+
+}
+
+/* --- Lignes suivantes (3 colonnes) --- */
+.artwork-gallery.BugsMusicaux .row-bottom {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* 3 colonnes classiques */
+    gap: 20px;
+    justify-items: center;              /* centre horizontalement les figures */
+    align-items: flex-start;                /* centre verticalement les figures */
+}
+
+/* Figures (images + légendes) */
+.artwork-gallery.BugsMusicaux figure {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0;
+}
+
+/* Images et vidéos */
+.artwork-gallery.BugsMusicaux img,
+.artwork-gallery.BugsMusicaux video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Grande image (si tu veux qu’elle prenne 2 lignes dans .row-bottom) */
+.artwork-gallery.BugsMusicaux .big {
+    grid-row: span 2;
+}
+
+/* Légende normale (sous une seule image) */
+.artwork-gallery.BugsMusicaux figcaption {
+    margin-top: 6px;
+    font-size: 0.9rem;
+    color: rgb(150, 150, 150);    
+    text-align: center;
+}
+
+
+
+
+/* Légende commune (sous toutes les images d'une ligne) */
+.artwork-gallery.BugsMusicaux .gallery-caption {
+    grid-column: 1 / -1; /* prend toute la largeur */
+    text-align: center;
+    margin-top: 6px;
+    font-size: 0.9rem;
+    color: rgb(150, 150, 150);    
+}
+
+
+/* --- Alignements horizontaux pour les figures --- */
+.artwork-gallery.BugsMusicaux figure.align-left {
+    justify-self: start;  /* colle à gauche de la cellule */
+}
+
+.artwork-gallery.BugsMusicaux figure.align-center {
+    justify-self: center; /* centre dans la cellule */
+}
+
+.artwork-gallery.BugsMusicaux figure.align-right {
+    justify-self: end;    /* colle à droite de la cellule */
+}
+
+/* Tailles personnalisées */
+.artwork-gallery.BugsMusicaux img.small,
+.artwork-gallery.BugsMusicaux video.small {
+    width: 400px;
+}
+
+.artwork-gallery.BugsMusicaux img.medium,
+.artwork-gallery.BugsMusicaux video.medium {
+    width: 400px;
+}
+
+.artwork-gallery.BugsMusicaux img.large,
+.artwork-gallery.BugsMusicaux video.large {
+    width: 800px;
+}
+
+/* Responsive : pile tout en colonne */
+@media (max-width: 768px) {
+    .artwork-gallery.BugsMusicaux .row-top,
+    .artwork-gallery.BugsMusicaux .row-bottom {
+        grid-template-columns: 1fr;
+    }
+    .artwork-gallery.BugsMusicaux .row-top .col {
+        flex-direction: column;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- Galerie spécifique à Rhombo --- */
+/* Version adaptée :
+   - Ligne du haut = 2 colonnes (big + 2 moyennes empilées)
+   - Lignes suivantes = 3 colonnes
+   - Possibilité d'ajouter une légende commune
+*/
+.artwork-gallery.Rhombo {
+display: grid;
+    grid-template-columns: 1fr 1fr; /* 3 colonnes de largeur égale */
+    gap: 100px;                          /* espace entre colonnes */
+    max-width: 1800px;                  /* largeur max pour éviter que ça s’étire trop */
+    margin: 1rem auto;                  /* centre la grille dans la page */
+    padding: 0 0px;                    /* marge égale à gauche et à droite */
+    box-sizing: border-box;
+    align-items: flex-start;                /* centre verticalement les figures dans leur ligne */
+    justify-items: center;              /* centre horizontalement chaque figure */
+}
+
+/* Figures (images + légendes) */
+.artwork-gallery.Rhombo figure {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0;
+}
+
+/* Images et vidéos */
+.artwork-gallery.Rhombo img,
+.artwork-gallery.Rhombo video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Grande image (si tu veux qu’elle prenne 2 lignes dans .row-bottom) */
+.artwork-gallery.Rhombo .big {
+    grid-row: span 2;
+}
+
+/* Légende normale (sous une seule image) */
+.artwork-gallery.Rhombo figcaption {
+    margin-top: 6px;
+    font-size: 0.9rem;
+    color: rgb(150, 150, 150);    
+    text-align: center;
+}
+.artwork-gallery.Rhombo figcaption.text-caption {
+    align-self: center; /* force le figcaption à se placer au centre de la figure */
+    text-align: center; /* centre le texte à l’intérieur */
+}
+
+
+.artwork-gallery.Rhombo figcaption.audio-caption {
+    display: flex;
+    justify-content: center;
+}
+.artwork-gallery.Rhombo figcaption.audio-caption audio {
+    display: block;
+    margin: 0 auto; /* force l’audio à se centrer */
+}
+.artwork-gallery.Rhombo figure.with-audio {
+    align-items: center; /* centre l’image et le lecteur audio */
+}
+
+/* Légende commune (sous toutes les images d'une ligne) */
+.artwork-gallery.Rhombo .gallery-caption {
+    grid-column: 1 / -1; /* prend toute la largeur */
+    text-align: center;
+    margin-top: 6px;
+    font-size: 0.9rem;
+    color: rgb(230, 230, 230);
+}
+
+
+/* --- Alignements horizontaux pour les figures --- */
+.artwork-gallery.Rhombo figure.align-left {
+    justify-self: start;  /* colle à gauche de la cellule */
+}
+
+.artwork-gallery.Rhombo figure.align-center {
+    justify-self: center; /* centre dans la cellule */
+}
+
+.artwork-gallery.Rhombo figure.align-right {
+    justify-self: end;    /* colle à droite de la cellule */
+}
+
+/* Tailles personnalisées */
+.artwork-gallery.Rhombo img.small,
+.artwork-gallery.Rhombo video.small {
+    width: 400px;
+}
+
+.artwork-gallery.Rhombo img.medium,
+.artwork-gallery.Rhombo video.medium {
+    width: 400px;
+}
+
+.artwork-gallery.Rhombo img.large,
+.artwork-gallery.Rhombo video.large {
+    width: 800px;
+}
+
+/* Responsive : pile tout en colonne */
+@media (max-width: 768px) {
+    .artwork-gallery.Rhombo .row-top,
+    .artwork-gallery.Rhombo .row-bottom {
+        grid-template-columns: 1fr;
+    }
+    .artwork-gallery.Rhombo .row-top .col {
+        flex-direction: column;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- Galerie générique (mini-guide) : grille auto-adaptative --- */
+/* À utiliser pour toutes les autres pages où tu veux une grille souple. */
+.artwork-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 20px auto;
+    max-width: 1400px;
+    padding: 0 10px;
+}
+
+
+
+.artwork-gallery figure {
+    margin: 0;
+    text-align: center;
+}
+
+.artwork-gallery img,
+.artwork-gallery video {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+
+
+
+
+
+/* =========================================================
+   MINI-GUIDE CSS : classes réutilisables pour images / vidéos
+   Ajouté pour simplifier la mise en page des œuvres
+   ========================================================= */
+
+/* === Classes de tailles réutilisables === */
+img.tiny, video.tiny {
+    width: 120px;
+}
+
+img.small, video.small {
+    width: 200px;
+}
+
+img.medium, video.medium {
+    width: 400px;
+}
+
+img.large, video.large {
+    width: 600px;
+    max-width: 100%; /* reste responsive */
+}
+
+img.full, video.full {
+    width: 100%;
+    height: auto;
+}
+
+/* === Galerie avec plusieurs images (grille) === */
+.artwork-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    margin: 20px auto;
+    max-width: 1200px;
+    padding: 0 10px;
+}
+
+.artwork-gallery figure {
+    margin: 0;
+    text-align: center;
+}
+
+.artwork-gallery img,
+.artwork-gallery video {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+/* === Galerie spéciale avec une seule image centrée === */
+.artwork-gallery.single {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.artwork-gallery.single figure {
+    text-align: center;
+}
+
+/* === Exemple de personnalisation par page === */
+/* Ici "page-special" peut être remplacé par le nom de ton choix */
+.artwork-gallery.page-special img.small {
+    width: 300px;
+}
+
+/* =========================================================
+   FIN DU MINI-GUIDE
+   ========================================================= */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   .footer-nav {
+    display: flex;                   /* active flexbox */
+    justify-content: space-between;  /* espace entre la flèche et le texte */
+    align-items: center;             /* aligne verticalement au centre */
+    padding: 10px 20px;              /* marges internes pour respirer */
+}
+
+.footer-nav p {
+    margin: 0;                       /* supprime la marge par défaut du <p> */
+}
+
+.footer-left {
+    display: flex;                   /* met flèche + contact en ligne */
+    align-items: center;
+    gap: 100px;                       /* espace entre flèche et lien contact */
+}
+
+.footer-nav .contact-link {
+    /*text-decoration: none;*/           /* enlève le soulignement si tu veux */
+    color: inherit;                  /* garde la couleur du texte du footer */
+    font-size: 0.95rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- Galerie spécifique à Prod --- */
+/* Version adaptée :
+   - Ligne du haut = 2 colonnes (big + 2 moyennes empilées)
+   - Lignes suivantes = 3 colonnes
+   - Possibilité d'ajouter une légende commune
+*/
+.artwork-gallery.Prod {
+    display: flex;              /* on empile des "rows" */
+    flex-direction: column;
+    gap: 20px;                  /* espace entre les lignes */
+    max-width: 1800px;
+    margin: 1rem auto;
+    padding: 0 0px;                    /* marge égale à gauche et à droite */
+    box-sizing: border-box;
+}
+
+/* --- Ligne du haut (2 colonnes) --- */
+.artwork-gallery.Prod .row-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* grande colonne + colonne pour les moyennes */
+    gap: 100px;
+    align-items: stretch;           /* les deux colonnes prennent toute la hauteur */
+    justify-content: center; /* centre verticalement dans la colonne */
+
+}
+
+/* --- Lignes suivantes (3 colonnes) --- */
+.artwork-gallery.Prod .row-middle {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 3 colonnes classiques */
+    gap: 20px;
+    justify-items: center;              /* centre horizontalement les figures */
+    align-items: stretch;                /* centre verticalement les figures */
+}
+
+
+/* Colonne de droite avec 2 images moyennes empilées */
+.artwork-gallery.Prod .row-top .col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center; /* centre verticalement dans la colonne */
+        align-items: flex-start; /* colle à gauche de la cellule */
+
+}
+
+/* --- Lignes suivantes (3 colonnes) --- */
+.artwork-gallery.Prod .row-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 3 colonnes classiques */
+    gap: 20px;
+    justify-items: center;              /* centre horizontalement les figures */
+    align-items: center;                /* centre verticalement les figures */
+}
+
+/* Figures (images + légendes) */
+.artwork-gallery.Prod figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+/* Images et vidéos */
+.artwork-gallery.Prod img,
+.artwork-gallery.Prod video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Grande image (si tu veux qu’elle prenne 2 lignes dans .row-bottom) */
+.artwork-gallery.Prod .big {
+    grid-row: span 2;
+}
+
+/* Légende normale (sous une seule image) */
+.artwork-gallery.Prod figcaption {
+    margin-top: 6px;
+    font-size: 0.9rem;
+    color: rgb(150, 150, 150);    
+    text-align: center;
+}
+
+
+
+
+/* Légende commune (sous toutes les images d'une ligne) */
+.artwork-gallery.Prod .gallery-caption {
+    grid-column: 1 / -1; /* prend toute la largeur */
+    text-align: center;
+    margin-top: 6px;
+    font-size: 0.9rem;
+    color: rgb(150, 150, 150);    
+}
+
+
+/* --- Alignements horizontaux pour les figures --- */
+.artwork-gallery.Prod figure.align-left {
+    justify-self: start;  /* colle à gauche de la cellule */
+}
+
+.artwork-gallery.Prod figure.align-center {
+    justify-self: center; /* centre dans la cellule */
+}
+
+.artwork-gallery.Prod figure.align-right {
+    justify-self: end;    /* colle à droite de la cellule */
+}
+
+
+/* Tailles personnalisées */
+.artwork-gallery.Prod img.small,
+.artwork-gallery.Prod video.small {
+    width: 400px;
+}
+
+.artwork-gallery.Prod img.medium,
+.artwork-gallery.Prod video.medium {
+    width: 400px;
+}
+
+.artwork-gallery.Prod img.large,
+.artwork-gallery.Prod video.large {
+    width: 800px;
+}
+
+/* Responsive : pile tout en colonne */
+@media (max-width: 768px) {
+    .artwork-gallery.Prod .row-top,
+    .artwork-gallery.Prod .row-bottom {
+        grid-template-columns: 1fr;
+    }
+    .artwork-gallery.Prod .row-top .col {
+        flex-direction: column;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
